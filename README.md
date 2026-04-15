@@ -4,8 +4,9 @@
 
 # 📌 Problem Statement
 
-The goal of this project is to build a **text-to-image generation pipeline** that converts natural language descriptions into corresponding images.
-This project simulates a real-world AI system by combining:
+The objective of this project is to build a **text-to-image generation system** that converts natural language descriptions into corresponding images.
+
+This project simulates a real-world AI pipeline by integrating:
 
 * **Natural Language Processing (NLP)**
 * **Computer Vision (CV)**
@@ -15,26 +16,32 @@ This project simulates a real-world AI system by combining:
 
 # 🚀 Project Overview
 
-This project is implemented in three stages:
+This project is divided into four stages:
 
 ### 🔹 Stage 1: GAN-based Text-to-Image
 
 * Text is converted into embeddings using **BERT**
-* A **GAN (Generator + Discriminator)** generates images
+* A **Generative Adversarial Network (GAN)** generates images
 
 ### 🔹 Stage 2: Attention-based Improvement
 
 * Introduced **Cross-Attention mechanism**
-* Helps model focus on important features from text
+* Helps model focus on relevant features from text
 
 ### 🔹 Stage 3: Pre-trained Model (Stable Diffusion)
 
-* Used **Stable Diffusion** for high-quality image generation
-* Generated domain-specific outputs (Anime/Artwork)
+* Used **Stable Diffusion v1.5**
+* Generated domain-specific images (Anime/Artwork)
+
+### 🔹 Stage 4: Dataset Analysis & Exploration
+
+* Explored **Oxford-102 Flowers Dataset**
+* Analyzed dataset structure, classes, and image properties
+* Visualized images with labels and distribution
 
 ---
 
-# 🗂️ Dataset
+# 🗂️ Datasets Used
 
 ### 🔹 CIFAR-10 (Primary Dataset)
 
@@ -42,10 +49,15 @@ This project is implemented in three stages:
 * Used for GAN training
 * ⚠️ Not text-image paired → limits output quality
 
-### 🔹 Custom Dataset (Anime Images)
+### 🔹 Custom Anime Dataset
 
-* Small dataset created for domain-specific generation
-* Used to simulate fine-tuning of pre-trained model
+* Small dataset for domain-specific generation
+* Used for Stable Diffusion prompt conditioning
+
+### 🔹 Oxford-102 Flowers Dataset
+
+* Used for dataset exploration task
+* Contains multiple flower categories with labeled images
 
 ---
 
@@ -61,7 +73,7 @@ This project is implemented in three stages:
 ## 🔹 2. Text Embedding
 
 * Model: `bert-base-uncased`
-* Converts text into meaningful vector representation
+* Generates semantic vector representations of text
 
 ---
 
@@ -79,41 +91,59 @@ This project is implemented in three stages:
 
 ---
 
-## 🔹 4. Attention Mechanism (Improvement)
+## 🔹 4. Attention Mechanism
 
 * Implemented **Cross-Attention**
-* Enhances interaction between text and image generation
-* Helps model focus on important features
+* Improves interaction between text and image features
+* Enables better feature alignment
 
 ---
 
 ## 🔹 5. Stable Diffusion (Pre-trained Model)
 
 * Used pre-trained **Stable Diffusion v1.5**
-* Generated anime-style images using prompts
-* Demonstrates domain-specific image generation
+* Generated high-quality anime-style images
+* Demonstrated domain-specific control using prompts
+
+---
+
+## 🔹 6. Dataset Analysis
+
+* Loaded Oxford-102 dataset
+* Analyzed:
+
+  * Number of classes
+  * Image resolution
+  * Class distribution
+* Visualized:
+
+  * Sample images with labels
+  * Distribution graph
 
 ---
 
 # 📊 Results
 
-## 🔹 Loss Graph
+## 🔹 GAN Training
 
-* Shows training behavior of Generator vs Discriminator
-
-## 🔹 Generated GAN Output
-
-* Produces grayscale images (noisy due to dataset limitation)
+* Generated grayscale images
+* Loss graph shows adversarial training behavior
 
 ## 🔹 Attention Visualization
 
-* Heatmap showing model focus regions
-* Demonstrates attention mechanism working
+* Heatmap displays model focus areas
+* Confirms attention mechanism is working
 
 ## 🔹 Stable Diffusion Outputs
 
 * High-quality anime images generated
-* Shows improvement over GAN outputs
+* Significant improvement over GAN outputs
+
+## 🔹 Dataset Analysis
+
+* Sample images visualized with labels
+* Class distribution plotted
+* Image resolution analyzed
 
 ---
 
@@ -134,13 +164,13 @@ This project is implemented in three stages:
 
   * Non-paired dataset (CIFAR-10)
   * Limited training
-  * Simple architecture
+  * Basic architecture
 
-* Attention improves internal representation but not visual quality significantly
+* Attention improves internal representation but has limited visual impact
 
-* Stable Diffusion produces superior results due to:
+* Stable Diffusion performs best due to:
 
-  * Pre-training on large datasets
+  * Large-scale pre-training
   * Advanced architecture
 
 ---
@@ -173,10 +203,13 @@ text_to_image/
 ├── text_utils.py
 ├── main.py
 ├── stable_diffusion.py
+├── dataset_analysis.py
 ├── loss_graph.png
 ├── output_image.png
 ├── attention_map.png
-├── outputs/                # Stable diffusion outputs
+├── dataset_samples.png
+├── class_distribution.png
+├── outputs/
 └── README.md
 ```
 
@@ -184,13 +217,14 @@ text_to_image/
 
 # 📌 Conclusion
 
-This project demonstrates a complete pipeline for text-to-image generation using:
+This project demonstrates an end-to-end **multimodal AI pipeline** integrating:
 
-* GAN
-* Attention Mechanisms
-* Pre-trained Diffusion Models
+* GAN-based image generation
+* Attention mechanisms
+* Pre-trained diffusion models
+* Dataset exploration techniques
 
-While GAN-based outputs are limited, the integration of attention and Stable Diffusion showcases the evolution from basic to advanced generative AI systems.
+While GAN outputs are limited, the addition of attention and Stable Diffusion highlights the transition from basic to advanced generative AI systems.
 
 ---
 
