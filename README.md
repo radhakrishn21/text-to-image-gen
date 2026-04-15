@@ -1,8 +1,8 @@
-# 🧠 Text-to-Image Generation using GAN, Attention, Transformers & Diffusion Models
+#  Text-to-Image Generation using GAN, Attention, Transformers & Diffusion Models
 
 ---
 
-# 📌 Problem Statement
+#  Problem Statement
 
 The objective of this project is to build a **text-to-image generation pipeline** that converts natural language descriptions into corresponding visual outputs.
 This project integrates concepts from:
@@ -13,18 +13,18 @@ This project integrates concepts from:
 
 ---
 
-# 🚀 Project Overview
+#  Project Overview
 
 The project is implemented in multiple stages to demonstrate progressive improvements:
 
-### 🔹 Stage 1: GAN-based Text-to-Image Generation
+###  Stage 1: GAN-based Text-to-Image Generation
 
 * Text is converted into embeddings using **BERT**
 * A **GAN (Generator + Discriminator)** generates images from text embeddings
 
 ---
 
-### 🔹 Stage 2: Attention Mechanism (Improvement)
+###  Stage 2: Attention Mechanism (Improvement)
 
 * Introduced **Cross-Attention**
 * Enables the model to focus on relevant parts of text input
@@ -32,14 +32,14 @@ The project is implemented in multiple stages to demonstrate progressive improve
 
 ---
 
-### 🔹 Stage 3: Pre-trained Model (Stable Diffusion)
+###  Stage 3: Pre-trained Model (Stable Diffusion)
 
 * Used **Stable Diffusion** for high-quality image generation
 * Generated domain-specific outputs (Anime / Artwork)
 
 ---
 
-### 🔹 Stage 4: Dataset Analysis
+###  Stage 4: Dataset Analysis
 
 * Analyzed **Oxford-102 Flowers Dataset**
 * Extracted insights such as:
@@ -51,7 +51,7 @@ The project is implemented in multiple stages to demonstrate progressive improve
 
 ---
 
-### 🔹 Stage 5: Text Preprocessing Module
+###  Stage 5: Text Preprocessing Module
 
 * Built a standalone module using **Hugging Face Transformers**
 * Converts raw text into:
@@ -63,7 +63,7 @@ The project is implemented in multiple stages to demonstrate progressive improve
 
 ---
 
-### 🔹 Stage 6: Conditional GAN (CGAN)
+###  Stage 6: Conditional GAN (CGAN)
 
 * Implemented a **Conditional GAN**
 * Labels used:
@@ -78,7 +78,7 @@ The project is implemented in multiple stages to demonstrate progressive improve
 
 # 🗂️ Datasets Used
 
-### 🔹 CIFAR-10
+###  CIFAR-10
 
 * Used for GAN training
 * 60,000 images across 10 classes
@@ -86,30 +86,30 @@ The project is implemented in multiple stages to demonstrate progressive improve
 
 ---
 
-### 🔹 Oxford-102 Flowers
+###  Oxford-102 Flowers
 
 * Used for dataset analysis
 * 102 flower categories
 
 ---
 
-### 🔹 Custom Synthetic Dataset
+###  Custom Synthetic Dataset
 
 * Generated shapes (square & circle)
 * Used for CGAN implementation
 
 ---
 
-# ⚙️ Methodology
+#  Methodology
 
-## 🔹 Text Processing
+##  Text Processing
 
 * Tokenization using BERT tokenizer
 * Embedding generation using `bert-base-uncased`
 
 ---
 
-## 🔹 GAN Architecture
+##  GAN Architecture
 
 ### Generator
 
@@ -123,61 +123,61 @@ The project is implemented in multiple stages to demonstrate progressive improve
 
 ---
 
-## 🔹 Attention Mechanism
+##  Attention Mechanism
 
 * Cross-attention between text and latent features
 * Improves feature alignment
 
 ---
 
-## 🔹 Conditional GAN
+##  Conditional GAN
 
 * Label embeddings used as conditional input
 * Generates different outputs based on category
 
 ---
 
-## 🔹 Stable Diffusion
+##  Stable Diffusion
 
 * Pre-trained model used for high-quality generation
 * Prompt-based domain-specific output generation
 
 ---
 
-# 📊 Results
+#  Results
 
-## 🔹 GAN Output
+##  GAN Output
 
 * Generates basic grayscale images
 * Output is noisy due to dataset limitations
 
 ---
 
-## 🔹 Attention Visualization
+##  Attention Visualization
 
 * Heatmap shows model focus areas
 * Demonstrates attention mechanism
 
 ---
 
-## 🔹 Stable Diffusion Output
+##  Stable Diffusion Output
 
 * High-quality anime/art-style images
 * Significantly better than GAN outputs
 
 ---
 
-## 🔹 CGAN Output
+##  CGAN Output
 
 * Successfully generates:
 
-  * Square ⬛
-  * Circle ⚪
+  * Square 
+  * Circle 
 * Demonstrates conditional generation
 
 ---
 
-# 🔄 Model Comparison
+#  Model Comparison
 
 | Model            | Output Quality          | Observation           |
 | ---------------- | ----------------------- | --------------------- |
@@ -189,7 +189,7 @@ The project is implemented in multiple stages to demonstrate progressive improve
 
 ---
 
-# ⚠️ Observations & Limitations
+#  Observations & Limitations
 
 * GAN outputs are noisy due to:
 
@@ -206,7 +206,7 @@ The project is implemented in multiple stages to demonstrate progressive improve
 
 ---
 
-# 🚀 Future Improvements
+#  Future Improvements
 
 * Use text-image paired datasets (MS-COCO, CUB-200)
 * Implement **LoRA / DreamBooth fine-tuning**
@@ -215,7 +215,7 @@ The project is implemented in multiple stages to demonstrate progressive improve
 
 ---
 
-# 🛠️ Tech Stack
+#  Tech Stack
 
 * Python
 * PyTorch
@@ -225,7 +225,7 @@ The project is implemented in multiple stages to demonstrate progressive improve
 
 ---
 
-# 📁 Project Structure
+#  Project Structure
 
 ```
 text_to_image/
@@ -248,7 +248,7 @@ text_to_image/
 
 ---
 
-# 📌 Conclusion
+#  Conclusion
 
 This project demonstrates a complete **end-to-end text-to-image generation pipeline** using:
 
@@ -262,6 +262,6 @@ It highlights the progression from basic generative models to advanced pre-train
 
 ---
 
-# 👨‍💻 Author
+#  Author
 
 **Anurag Prajapati**
