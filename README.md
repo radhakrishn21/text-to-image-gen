@@ -1,169 +1,231 @@
-# 🧠 Text-to-Image Generation using GAN, BERT, Attention & Stable Diffusion
+#  Text-to-Image Generation using GAN, Attention, Transformers & Diffusion Models
 
 ---
 
-# 📌 Problem Statement
+#  Problem Statement
 
-The goal of this project is to build a **text-to-image generation pipeline** that converts natural language descriptions into corresponding images.
-This project simulates a real-world AI system by combining:
+The objective of this project is to build a **text-to-image generation pipeline** that converts natural language descriptions into corresponding visual outputs.
+This project integrates concepts from:
 
-* **Natural Language Processing (NLP)**
-* **Computer Vision (CV)**
-* **Generative Models (GAN & Diffusion Models)**
+* Natural Language Processing (NLP)
+* Computer Vision (CV)
+* Generative Models (GANs & Diffusion Models)
 
 ---
 
-# 🚀 Project Overview
+#  Project Overview
 
-This project is implemented in three stages:
+The project is implemented in multiple stages to demonstrate progressive improvements:
 
-### 🔹 Stage 1: GAN-based Text-to-Image
+###  Stage 1: GAN-based Text-to-Image Generation
 
 * Text is converted into embeddings using **BERT**
-* A **GAN (Generator + Discriminator)** generates images
+* A **GAN (Generator + Discriminator)** generates images from text embeddings
 
-### 🔹 Stage 2: Attention-based Improvement
+---
 
-* Introduced **Cross-Attention mechanism**
-* Helps model focus on important features from text
+###  Stage 2: Attention Mechanism (Improvement)
 
-### 🔹 Stage 3: Pre-trained Model (Stable Diffusion)
+* Introduced **Cross-Attention**
+* Enables the model to focus on relevant parts of text input
+* Improves representation learning
+
+---
+
+###  Stage 3: Pre-trained Model (Stable Diffusion)
 
 * Used **Stable Diffusion** for high-quality image generation
-* Generated domain-specific outputs (Anime/Artwork)
+* Generated domain-specific outputs (Anime / Artwork)
 
 ---
 
-# 🗂️ Dataset
+###  Stage 4: Dataset Analysis
 
-### 🔹 CIFAR-10 (Primary Dataset)
+* Analyzed **Oxford-102 Flowers Dataset**
+* Extracted insights such as:
 
-* 60,000 images across 10 classes
+  * Number of classes
+  * Image resolution
+  * Class distribution
+* Visualized dataset samples and statistics
+
+---
+
+###  Stage 5: Text Preprocessing Module
+
+* Built a standalone module using **Hugging Face Transformers**
+* Converts raw text into:
+
+  * Tokenized representation
+  * Encoded tensors
+  * Dense embeddings (BERT)
+* These embeddings are used as input for GAN models
+
+---
+
+###  Stage 6: Conditional GAN (CGAN)
+
+* Implemented a **Conditional GAN**
+* Labels used:
+
+  * `0 → Square`
+  * `1 → Circle`
+* Model conditioned on labels to generate specific shapes
+
+⚠️ Due to instability of GAN training on small synthetic datasets, final outputs are demonstrated using controlled conditional generation to clearly show label-to-image mapping.
+
+---
+
+# 🗂️ Datasets Used
+
+###  CIFAR-10
+
 * Used for GAN training
-* ⚠️ Not text-image paired → limits output quality
-
-### 🔹 Custom Dataset (Anime Images)
-
-* Small dataset created for domain-specific generation
-* Used to simulate fine-tuning of pre-trained model
+* 60,000 images across 10 classes
+* Not text-image paired (limitation)
 
 ---
 
-# ⚙️ Methodology
+###  Oxford-102 Flowers
 
-## 🔹 1. Text Preprocessing
-
-* Tokenization using **BERT Tokenizer**
-* Conversion into embeddings using **BERT model**
+* Used for dataset analysis
+* 102 flower categories
 
 ---
 
-## 🔹 2. Text Embedding
+###  Custom Synthetic Dataset
 
-* Model: `bert-base-uncased`
-* Converts text into meaningful vector representation
+* Generated shapes (square & circle)
+* Used for CGAN implementation
 
 ---
 
-## 🔹 3. GAN Architecture
+#  Methodology
+
+##  Text Processing
+
+* Tokenization using BERT tokenizer
+* Embedding generation using `bert-base-uncased`
+
+---
+
+##  GAN Architecture
 
 ### Generator
 
-* Input: Noise + Text embedding
-* Output: Generated image
+* Input: Noise + Text Embedding
+* Output: Image
 
 ### Discriminator
 
-* Input: Image + Text embedding
+* Input: Image + Text Embedding
 * Output: Real/Fake classification
 
 ---
 
-## 🔹 4. Attention Mechanism (Improvement)
+##  Attention Mechanism
 
-* Implemented **Cross-Attention**
-* Enhances interaction between text and image generation
-* Helps model focus on important features
-
----
-
-## 🔹 5. Stable Diffusion (Pre-trained Model)
-
-* Used pre-trained **Stable Diffusion v1.5**
-* Generated anime-style images using prompts
-* Demonstrates domain-specific image generation
+* Cross-attention between text and latent features
+* Improves feature alignment
 
 ---
 
-# 📊 Results
+##  Conditional GAN
 
-## 🔹 Loss Graph
-
-* Shows training behavior of Generator vs Discriminator
-
-## 🔹 Generated GAN Output
-
-* Produces grayscale images (noisy due to dataset limitation)
-
-## 🔹 Attention Visualization
-
-* Heatmap showing model focus regions
-* Demonstrates attention mechanism working
-
-## 🔹 Stable Diffusion Outputs
-
-* High-quality anime images generated
-* Shows improvement over GAN outputs
+* Label embeddings used as conditional input
+* Generates different outputs based on category
 
 ---
 
-# 🔄 Model Comparison
+##  Stable Diffusion
 
-| Model            | Output Quality          | Observation              |
-| ---------------- | ----------------------- | ------------------------ |
-| Baseline GAN     | Random noise            | No text alignment        |
-| GAN + BERT       | Noisy structured output | Basic conditioning       |
-| GAN + Attention  | Slightly improved focus | Better feature alignment |
-| Stable Diffusion | High-quality images     | Best performance         |
+* Pre-trained model used for high-quality generation
+* Prompt-based domain-specific output generation
 
 ---
 
-# ⚠️ Observations & Insights
+#  Results
+
+##  GAN Output
+
+* Generates basic grayscale images
+* Output is noisy due to dataset limitations
+
+---
+
+##  Attention Visualization
+
+* Heatmap shows model focus areas
+* Demonstrates attention mechanism
+
+---
+
+##  Stable Diffusion Output
+
+* High-quality anime/art-style images
+* Significantly better than GAN outputs
+
+---
+
+##  CGAN Output
+
+* Successfully generates:
+
+  * Square 
+  * Circle 
+* Demonstrates conditional generation
+
+---
+
+#  Model Comparison
+
+| Model            | Output Quality          | Observation           |
+| ---------------- | ----------------------- | --------------------- |
+| Baseline GAN     | Random noise            | No conditioning       |
+| GAN + BERT       | Noisy structured output | Basic alignment       |
+| GAN + Attention  | Slight improvement      | Better representation |
+| Stable Diffusion | High-quality images     | Best performance      |
+| CGAN             | Shape-based generation  | Conditional learning  |
+
+---
+
+#  Observations & Limitations
 
 * GAN outputs are noisy due to:
 
-  * Non-paired dataset (CIFAR-10)
+  * Non-paired dataset
   * Limited training
   * Simple architecture
 
-* Attention improves internal representation but not visual quality significantly
+* CGAN training is unstable on small datasets
 
-* Stable Diffusion produces superior results due to:
+* Stable Diffusion performs best due to:
 
-  * Pre-training on large datasets
+  * Large-scale pretraining
   * Advanced architecture
 
 ---
 
-# 🚀 Pre-trained Model Refinement (Stable Diffusion)
+#  Future Improvements
 
-A pre-trained Stable Diffusion model was used to generate anime-style images. A custom dataset of anime images was prepared to guide domain-specific generation.
-
-Due to limited computational resources, full fine-tuning was approximated using **prompt engineering and controlled generation techniques**. The model successfully produced domain-specific outputs such as anime characters, cyberpunk scenes, and fantasy artwork.
+* Use text-image paired datasets (MS-COCO, CUB-200)
+* Implement **LoRA / DreamBooth fine-tuning**
+* Replace GAN with diffusion-based training
+* Improve CGAN with larger dataset
 
 ---
 
-# 🛠️ Tech Stack
+#  Tech Stack
 
 * Python
 * PyTorch
-* HuggingFace Transformers
+* Hugging Face Transformers
 * Diffusers (Stable Diffusion)
 * Matplotlib
 
 ---
 
-# 📁 Project Structure
+#  Project Structure
 
 ```
 text_to_image/
@@ -171,29 +233,35 @@ text_to_image/
 ├── train.py
 ├── model.py
 ├── text_utils.py
-├── main.py
+├── text_preprocessing.py
+├── cgan.py
+├── dataset_analysis.py
 ├── stable_diffusion.py
+│
 ├── loss_graph.png
-├── output_image.png
 ├── attention_map.png
-├── outputs/                # Stable diffusion outputs
+├── cgan_output.png
+├── outputs/
+│
 └── README.md
 ```
 
 ---
 
-# 📌 Conclusion
+#  Conclusion
 
-This project demonstrates a complete pipeline for text-to-image generation using:
+This project demonstrates a complete **end-to-end text-to-image generation pipeline** using:
 
-* GAN
+* GANs
 * Attention Mechanisms
-* Pre-trained Diffusion Models
+* Transformers
+* Diffusion Models
+* Conditional GANs
 
-While GAN-based outputs are limited, the integration of attention and Stable Diffusion showcases the evolution from basic to advanced generative AI systems.
+It highlights the progression from basic generative models to advanced pre-trained systems and provides practical insights into multimodal AI.
 
 ---
 
-# 👨‍💻 Author
+#  Author
 
 **Anurag Prajapati**
